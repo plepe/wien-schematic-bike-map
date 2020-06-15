@@ -35,15 +35,15 @@ function locToPath (c) {
 
 function render () {
   let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  svg.setAttribute('height', 1000)
-  svg.setAttribute('width', 1000)
+  svg.setAttribute('height', 1500)
+  svg.setAttribute('width', 1500)
   svg.setAttribute('style', 'overflow: auto;')
 
   data.routes.forEach(route => {
     let arc = document.createElementNS("http://www.w3.org/2000/svg", 'path')
     arc.setAttribute('d', locToPath(route.loc))
     arc.setAttribute('stroke', route.color || 'red')
-    arc.setAttribute('stroke-width', 3)
+    arc.setAttribute('stroke-width', route.prio === 2 ? 1 : 3)
     arc.setAttribute('fill', 'none')
     arc.onclick = function () {
       alert(route.name)
@@ -52,16 +52,28 @@ function render () {
   })
 
   data.nodes.forEach(node => {
+    if (node.prio === 2) {
+      return
+    }
+
     let circle = document.createElementNS("http://www.w3.org/2000/svg", 'circle')
     let [x, y] = locToXY(node.loc[0], node.loc[1])
     circle.setAttribute('cx', x)
     circle.setAttribute('cy', y)
     circle.setAttribute('r', 5)
+    svg.appendChild(circle)
     circle.onclick = function () {
       alert(node.name)
     }
 
-    svg.appendChild(circle)
+    let text = document.createElementNS("http://www.w3.org/2000/svg", 'text')
+    text.setAttribute('x', x)
+    text.setAttribute('y', y)
+    text.setAttribute('dy', 15)
+    text.setAttribute('text-anchor', 'middle')
+    text.setAttribute('style', 'font-family: Arial, Helvetica, sans-serif; font-size: 10pt;')
+    text.appendChild(document.createTextNode(node.name))
+    svg.appendChild(text)
   })
 
   document.body.appendChild(svg)

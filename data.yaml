@@ -1,34 +1,40 @@
 nodes:
+- name: Michaelerplatz
+  loc: [ 40, 2 ]
+  prio: 2
+
 - name: Schottenring
-  loc: [ 0, 3 ]
+  loc: [ 0, 4 ]
 - name: Schwedenplatz
-  loc: [ 10, 3 ]
+  loc: [ 10, 4 ]
 - name: Urania
-  loc: [ 12.5, 3 ]
+  loc: [ 12.5, 4 ]
 - name: Stubentor
-  loc: [ 17.5, 3 ]
+  loc: [ 17.5, 4 ]
 - name: Schwarzenbergplatz
-  loc: [ 27.5, 3 ]
+  loc: [ 27.5, 4 ]
 - name: Oper
-  loc: [ 32.5, 3 ]
+  loc: [ 32.5, 4 ]
 - name: Heldenplatz 
-  loc: [ 40, 3 ]
+  loc: [ 40, 4 ]
 - name: Parlament
-  loc: [ 45, 3 ]
+  loc: [ 45, 4 ]
 - name: Schottentor
-  loc: [ 50, 3 ]
+  loc: [ 50, 4 ]
 - name: Börse
-  loc: [ 55, 3 ]
+  loc: [ 55, 4 ]
 
 - name: Praterstern
-  loc: [ 10, 7.5 ]
+  loc: [ 10, 8 ]
 - name: Rennweg
-  loc: [ 20, 7.5 ]
+  loc: [ 20, 8 ]
 
 - name: Spittelau
   loc: [ 0, 12 ]
 - name: Vorgartenstraße
   loc: [ 10, 12 ]
+- name: Stadion
+  loc: [ 15, 12 ]
 - name: Stadionbrücke
   loc: [ 17.5, 12 ]
 - name: Hauptbahnhof
@@ -47,47 +53,109 @@ nodes:
   loc: [ 20, 12 ]
 
 - name: Friedrich-Engels-Platz
-  loc: [ 5, 18 ]
+  loc: [ 5, 16 ]
 - name: Reumannplatz
-  loc: [ 29, 21 ]
+  loc: [ 29, 16 ]
+- name: Lobkowitzbrücke
+  loc: [ 38, 16 ]
+
 - name: Simmering
-  loc: [ 20, 21 ]
+  loc: [ 20, 20 ]
+- name: Altes Landgut
+  loc: [ 29, 20 ]
+- name: Bhf. Meidling
+  loc: [ 35, 20 ]
+- name: Hietzing
+  loc: [ 39, 20 ]
+- name: Ottakring
+  loc: [ 45, 20 ]
+- name: Hernals
+  loc: [ 47.5, 20 ]
+
+- name: Schwechat
+  loc: [ 20, 28 ]
+- name: Rothneusiedl
+  loc: [ 29, 28 ]
+- name: Alt Erlaa
+  loc: [ 35, 28 ]
+
+- name: Atzgersdorf
+  loc: [ 36, 32 ]
+
+- name: Siebenhirten
+  loc: [ 35, 36 ]
+- name: Liesing
+  loc: [ 36, 36 ]
 
 
 routes:
 - name: Ring
-  loc: [ 12.5, 3, 60, 3 ]
+  loc: [ 12.5, 4, 60, 4 ]
   prio: 1
-  color: 'red'
 - name: Gürtelradweg
   loc: [ 35, 12, 60, 12 ]
   prio: 1
 - name: Gürtelradweg
-  loc: [ 0, 12, 5, 18 ]
+  loc: [ 0, 12, 5, 16 ]
   prio: 1
 - name: Gürtelradweg
-  loc: [ 17.5, 12, 29, 12 ]
+  loc: [ 20, 12, 29, 12 ]
+- name:
+  loc: [ 15, 12, 20, 12 ]
+
+- name: Innenstadt West
+  loc: [ 32.5, 4, 32.5, 3, 40, 2, 47.5, 3, 50, 4 ]
+  prio: 2
+- name: Heldenplatz
+  loc: [ 40, 2, 40, 4 ]
+  prio: 2
+- name: Innenstadt Ost
+  loc: [ 55, 4, 10, 2, 17.5, 4 ]
+  prio: 2
+- name: Innenstadt Ost
+  loc: [ 47.5, 3, 10, 2, 10, 4 ]
+  prio: 2
+- name: Innenstadt Süd
+  loc: [ 12.5, 4, 15, 3, 32.5, 3 ]
+  prio: 2
+
 - name: Oper - Meidling
-  loc: [ 32.5, 3, 35, 12, 35, 18 ]
+  loc: [ 32.5, 4, 35, 12, 35, 20, 35, 24, 35.5, 28 ]
+  prio: 1
+- name: Altmannsdorf
+  loc: [ 35, 24, 34.5, 28 ]
+  prio: 1
+- name: Alt Erlaa - Siebenhirten
+  loc: [ 35, 28, 35, 36 ]
   prio: 1
 - name: Wientalradweg
-  loc: [ 32.5, 3, 37.5, 12, 37.5, 18 ]
-  prio: 1
+  loc: [ 32.5, 4, 37.5, 12, 38, 16, 38.5, 18, 39, 20, 40, 24 ]
 - name: Mahü
-  loc: [ 39, 3, 39.75, 12, 39.75, 18 ]
+  loc: [ 39, 4, 39.75, 12, 39.75, 20, 39, 20 ]
 - name: Goldschlagstraße
-  loc: [ 41, 12, 41, 18 ]
+  loc: [ 41, 12, 41, 20 ]
 - name: Hasnerstraße
-  loc: [ 45, 12, 45, 18 ]
+  loc: [ 45, 12, 45, 23 ]
 - name: Pfeilgasse
-  loc: [ 45, 3, 46, 12 ]
+  loc: [ 45, 4, 46, 12 ]
 - name: Rad-Langstrecke Süd
-  loc: [ 27.5, 3, 29, 12, 29, 23 ]
+  loc: [ 27.5, 4, 29, 12, 28, 16, 29, 20, 29, 36 ]
 - name: Rad-Langstrecke Nord
-  loc: [ 12.5, 3, 10, 7.5, 10, 12 ]
+  loc: [ 12.5, 4, 10, 8, 10, 12 ]
 - name: Engerthstraße
-  loc: [ 5, 18, 10, 12 ]
+  loc: [ 5, 16, 10, 12, 15, 12 ]
 - name: Simmering
-  loc: [ 17.5, 3, 20, 7.5, 20, 9, 20, 23 ]
+  loc: [ 17.5, 4, 20, 8, 20, 12, 20, 28 ]
 - name: Donaukanal
-  loc: [ 0, 12, 0, 3, 12.5, 3, 17.5, 12 ]
+  loc: [ 0, 12, 0, 4, 12.5, 4, 17.5, 12, 17.5, 18 ]
+- name: Wiener Berg
+  loc: [ 29, 20, 35, 20 ]
+- name: Tanbruckgasse
+  loc: [ 35, 20, 38, 16 ]
+- name: Ottakring - Hernals
+  loc: [ 45, 20, 47.5, 20 ]
+  prio: 2
+- name: Schmelz
+  loc: [ 38.5, 18, 47.5, 18 ]
+- name: Liesingbachradweg
+  loc: [ 19, 28, 35.5, 28, 36, 32, 36, 36 ]
