@@ -1,0 +1,93 @@
+nodes:
+- name: Schottenring
+  loc: [ 0, 3 ]
+- name: Schwedenplatz
+  loc: [ 10, 3 ]
+- name: Urania
+  loc: [ 12.5, 3 ]
+- name: Stubentor
+  loc: [ 17.5, 3 ]
+- name: Schwarzenbergplatz
+  loc: [ 27.5, 3 ]
+- name: Oper
+  loc: [ 32.5, 3 ]
+- name: Heldenplatz 
+  loc: [ 40, 3 ]
+- name: Parlament
+  loc: [ 45, 3 ]
+- name: Schottentor
+  loc: [ 50, 3 ]
+- name: Börse
+  loc: [ 55, 3 ]
+
+- name: Praterstern
+  loc: [ 10, 7.5 ]
+- name: Rennweg
+  loc: [ 20, 7.5 ]
+
+- name: Spittelau
+  loc: [ 0, 12 ]
+- name: Vorgartenstraße
+  loc: [ 10, 12 ]
+- name: Stadionbrücke
+  loc: [ 17.5, 12 ]
+- name: Hauptbahnhof
+  loc: [ 29, 12 ]
+- name: Matzleinsdorfer Platz
+  loc: [ 32.5, 12 ]
+- name: Margaretengürtel
+  loc: [ 37.5, 12 ]
+- name: Westbahnhof
+  loc: [ 40, 12 ]
+- name: Thaliastraße
+  loc: [ 45, 12 ]
+- name: Alser Straße
+  loc: [ 47.5, 12 ]
+- name: St. Marx
+  loc: [ 20, 12 ]
+
+- name: Friedrich-Engels-Platz
+  loc: [ 5, 18 ]
+- name: Reumannplatz
+  loc: [ 29, 21 ]
+- name: Simmering
+  loc: [ 20, 21 ]
+
+
+routes:
+- name: Ring
+  loc: [ 12.5, 3, 60, 3 ]
+  prio: 1
+  color: 'red'
+- name: Gürtelradweg
+  loc: [ 35, 12, 60, 12 ]
+  prio: 1
+- name: Gürtelradweg
+  loc: [ 0, 12, 5, 18 ]
+  prio: 1
+- name: Gürtelradweg
+  loc: [ 17.5, 12, 29, 12 ]
+- name: Oper - Meidling
+  loc: [ 32.5, 3, 35, 12, 35, 18 ]
+  prio: 1
+- name: Wientalradweg
+  loc: [ 32.5, 3, 37.5, 12, 37.5, 18 ]
+  prio: 1
+- name: Mahü
+  loc: [ 39, 3, 39.75, 12, 39.75, 18 ]
+- name: Goldschlagstraße
+  loc: [ 41, 12, 41, 18 ]
+- name: Hasnerstraße
+  loc: [ 45, 12, 45, 18 ]
+- name: Pfeilgasse
+  loc: [ 45, 3, 46, 12 ]
+- name: Rad-Langstrecke Süd
+  loc: [ 27.5, 3, 29, 12, 29, 23 ]
+- name: Rad-Langstrecke Nord
+  loc: [ 12.5, 3, 10, 7.5, 10, 12 ]
+- name: Engerthstraße
+  loc: [ 5, 18, 10, 12 ]
+- name: Simmering
+  loc: [ 17.5, 3, 20, 7.5, 20, 9, 20, 23 ]
+- name: Donaukanal
+  loc: [ 0, 12, 0, 3, 12.5, 3, 17.5, 12 ]
