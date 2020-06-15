@@ -1,3 +1,9 @@
+const yaml = require('yaml')
+
+const httpRequest = require('./httpRequest.js')
+
+let data
+
 function render () {
   let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute('height', 1000)
@@ -17,5 +23,8 @@ function render () {
 }
 
 window.onload = function () {
-  render()
+  httpRequest('routes.yaml', {}, (err, result) => {
+    data = yaml.parse(result.body)
+    render()
+  })
 }

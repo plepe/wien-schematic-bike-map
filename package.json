@@ -21,5 +21,8 @@
   "devDependencies": {
     "browserify": "^16.5.1",
     "watchify": "^3.11.1"
+  },
+  "dependencies": {
+    "yaml": "~1.7"
   }
 }

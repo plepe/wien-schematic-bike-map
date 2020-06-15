@@ -1,0 +1,9 @@
+- name: Ring
+  route: [ 4, 3, 12, 3 ]
+  prio: 1
+- name: Kai
+  route: [ 0, 3, 4, 3 ]
+  prio: 1
+- name: Wientalradweg
+  route: [ 9, 3, 9, 15 ]
+  prio: 1
