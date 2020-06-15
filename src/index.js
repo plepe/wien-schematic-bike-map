@@ -39,16 +39,35 @@ function render () {
   svg.setAttribute('width', 1500)
   svg.setAttribute('style', 'overflow: auto;')
 
-  data.routes.forEach(route => {
+  let defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+  svg.appendChild(defs)
+  let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+  text.setAttribute('style', 'font-family: Arial, Helvetica, sans-serif; font-size: 10pt; fill: red;')
+
+  data.routes.forEach((route, i) => {
     let arc = document.createElementNS("http://www.w3.org/2000/svg", 'path')
+    arc.setAttribute('id', 'route' + i)
     arc.setAttribute('d', locToPath(route.loc))
-    arc.setAttribute('stroke', route.color || 'red')
-    arc.setAttribute('stroke-width', route.prio === 2 ? 1 : 3)
-    arc.setAttribute('fill', 'none')
-    arc.onclick = function () {
+    defs.appendChild(arc)
+
+    let use = document.createElementNS("http://www.w3.org/2000/svg", 'use')
+    use.setAttribute('href', '#route' + i)
+    use.setAttribute('stroke', route.color || 'red')
+    use.setAttribute('stroke-width', route.prio === 2 ? 1 : 3)
+    use.setAttribute('fill', 'none')
+    use.onclick = function () {
       alert(route.name)
     }
-    svg.appendChild(arc)
+    svg.appendChild(use)
+
+    let textpath = document.createElementNS("http://www.w3.org/2000/svg", 'textPath')
+    textpath.setAttribute('href', '#route' + i)
+    textpath.setAttribute('text-anchor', 'middle')
+    textpath.setAttribute('startOffset', '50%')
+    textpath.setAttribute('side', route.loc[1] === route.loc[3] || route.loc[0] > 30 ? 'right' : 'left')
+    textpath.setAttribute('dy', '5')
+    textpath.appendChild(document.createTextNode(route.name || ''))
+    text.appendChild(textpath)
   })
 
   data.nodes.forEach(node => {
@@ -72,10 +91,11 @@ function render () {
     text.setAttribute('dy', 15)
     text.setAttribute('text-anchor', 'middle')
     text.setAttribute('style', 'font-family: Arial, Helvetica, sans-serif; font-size: 10pt;')
-    text.appendChild(document.createTextNode(node.name))
+    text.appendChild(document.createTextNode(node.name || ''))
     svg.appendChild(text)
   })
 
+  svg.appendChild(text)
   document.body.appendChild(svg)
 }
 
