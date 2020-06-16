@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build",
     "build": "mkdir -p dist && browserify src/index.js -o dist/app.js",
+    "start": "http-server ./",
     "watch": "mkdir -p dist && watchify --debug src/index.js -o dist/app.js -v"
   },
   "repository": {
@@ -20,6 +22,7 @@
   "homepage": "https://github.com/plepe/wien-schematic-bike-map#readme",
   "devDependencies": {
     "browserify": "^16.5.1",
+    "http-server": "^0.12.3",
     "watchify": "^3.11.1"
   },
   "dependencies": {
