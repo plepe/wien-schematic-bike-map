@@ -5,6 +5,7 @@ const httpRequest = require('./httpRequest.js')
 let data
 
 let zoom = 20
+let svg
 
 function locToXY (c, d) {
   return [
@@ -34,7 +35,11 @@ function locToPath (c) {
 }
 
 function render () {
-  let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  if (svg) {
+    document.body.removeChild(svg)
+  }
+
+  svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute('height', 1500)
   svg.setAttribute('width', 1500)
   svg.setAttribute('style', 'overflow: auto;')
@@ -104,4 +109,16 @@ window.onload = function () {
     data = yaml.parse(result.body)
     render()
   })
+
+  let input = document.getElementById('zoom-in')
+  input.onclick = () => {
+    zoom = Math.min(zoom + 5, 60)
+    render()
+  }
+
+  input = document.getElementById('zoom-out')
+  input.onclick = () => {
+    zoom = Math.max(zoom - 5, 10)
+    render()
+  }
 }
