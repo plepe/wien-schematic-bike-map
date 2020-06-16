@@ -39,6 +39,8 @@ function render () {
     document.body.removeChild(svg)
   }
 
+  let maxPrio = zoom > 20 ? 2 : 1
+
   svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   svg.setAttribute('height', 1500)
   svg.setAttribute('width', 1500)
@@ -50,6 +52,10 @@ function render () {
   text.setAttribute('style', 'font-family: Arial, Helvetica, sans-serif; font-size: 10pt; fill: red;')
 
   data.routes.forEach((route, i) => {
+    if ((route.prio || 1) > maxPrio) {
+      return
+    }
+
     let arc = document.createElementNS("http://www.w3.org/2000/svg", 'path')
     arc.setAttribute('id', 'route' + i)
     arc.setAttribute('d', locToPath(route.loc))
@@ -76,7 +82,7 @@ function render () {
   })
 
   data.nodes.forEach(node => {
-    if (node.prio === 2) {
+    if ((node.prio || 1) > maxPrio) {
       return
     }
 
